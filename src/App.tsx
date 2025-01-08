@@ -1,74 +1,37 @@
 import './App.css'
+import {Accordion} from "./components/Accordion/Accordion.tsx";
+import {Rating} from "./components/Rating/Rating.tsx";
 
 function App() {
     console.log('App')
     return (
         <>
-                <AppTitle/>
-                <Rating/>
-                <Accordion/>
-                <Rating/>
+            <PageTitle title={'This is APP component'}/>
+            <PageTitle title={'My friends'}/>
+
+            <Rating value={2}/>
+            <Accordion title={'First name accordion'}/>
+            <Accordion title={'Second name accordion'}/>
+            <Rating value={0}/>
+            <Rating value={1}/>
+            <Rating value={2}/>
+            <Rating value={3}/>
+            <Rating value={4}/>
+            <Rating value={5}/>
         </>
     )
 }
 
-function AppTitle () {
-    console.log('AppTitle')
+type PageTitleType ={
+    title: string
+}
+
+function PageTitle(props: PageTitleType) {
+    console.log('PageTitle')
     return (
-        <>
-            This is APP component
-        </>
+        <h1>{props.title}</h1>
     )
 }
 
-function Rating() {
-    console.log('Rating')
-    return (
-        <div>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-        </div>
-    )
-}
-
-function Accordion () {
-    console.log('Accordion')
-    return (
-        <>
-            <AccordionTitle/>
-            <AccordionBody/>
-        </>
-    )
-}
-
-function AccordionTitle () {
-    return (
-        <>
-            <h3>Menu</h3>
-        </>
-    )
-}
-
-function AccordionBody () {
-    return (
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    )
-}
-
-function Star () {
-   console.log('Star paint')
-    return (
-        <div>
-            star
-        </div>
-    )
-}
 
 export default App
