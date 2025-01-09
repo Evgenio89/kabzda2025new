@@ -10,8 +10,8 @@ function App() {
             <PageTitle title={'My friends'}/>
 
             <Rating value={2}/>
-            <Accordion title={'First name accordion'}/>
-            <Accordion title={'Second name accordion'}/>
+            <Accordion title={'First name accordion'} collapsed={true}/>
+            <Accordion title={'Second name accordion'} collapsed={false}/>
             <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
