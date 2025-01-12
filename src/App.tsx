@@ -1,11 +1,21 @@
 import './App.css'
 import {Accordion} from "./components/Accordion/Accordion.tsx";
 import {Rating} from "./components/Rating/Rating.tsx";
+import {OnOff} from "./components/OnOff/OnOff.tsx";
+import {NotControlledAccordion} from "./components/Accordion/NotControlledAccordion.tsx";
+import {NotControlledRating} from "./components/Rating/NotControlledRating.tsx";
 
 function App() {
+
+
+
     console.log('App')
     return (
         <>
+            <NotControlledRating />
+            <NotControlledAccordion title={'NotControlledAccordion'}/>
+            <OnOff />
+            <OnOff />
             <PageTitle title={'This is APP component'}/>
             <PageTitle title={'My friends'}/>
 

@@ -1,17 +1,20 @@
+import {useState} from "react";
+
 type AccordionType = {
     title: string;
-    collapsed: boolean
+
 }
 
-export function Accordion(props: AccordionType) {
-    console.log('Accordion')
+export function NotControlledAccordion(props: AccordionType) {
+    const [collapsed, setCollapsed] = useState(false);
 
-        return (
-            <>
-                <AccordionTitle title={props.title}/>
-                {!props.collapsed && <AccordionBody/> }
-            </>
-        )
+    return (
+        <>
+            <AccordionTitle title={props.title}/>
+            <button onClick={() => {setCollapsed(!collapsed)}}>TOGGLE</button>
+            {!collapsed && <AccordionBody/> }
+        </>
+    )
 
 }
 
