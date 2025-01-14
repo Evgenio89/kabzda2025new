@@ -10,8 +10,7 @@ export function NotControlledAccordion(props: AccordionType) {
 
     return (
         <>
-            <AccordionTitle title={props.title}/>
-            <button onClick={() => {setCollapsed(!collapsed)}}>TOGGLE</button>
+            <AccordionTitle title={props.title} callBack={() => setCollapsed(!collapsed)}/>
             {!collapsed && <AccordionBody/> }
         </>
     )
@@ -26,12 +25,13 @@ export function NotControlledAccordion(props: AccordionType) {
 
 type AccordionTitleType = {
     title: string
+    callBack: () => void
 }
 
 function AccordionTitle(props: AccordionTitleType) {
     return (
         <>
-            <h3>{props.title}</h3>
+            <h3 onClick={() => {props.callBack()}}>{props.title}</h3>
         </>
     )
 }
