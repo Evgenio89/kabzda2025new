@@ -24,14 +24,7 @@ type StarType = {
 }
 
 function Star(props: StarType) {
-   if (props.selected) {
        return (
-           <span><b>star </b></span>
+           <span>{props.selected ? <b>star </b> : 'star '}</span>
        )
-   }else {
-       return(
-           <span>star </span>
-       )
-   }
-
 }
