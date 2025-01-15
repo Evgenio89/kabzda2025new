@@ -10,7 +10,7 @@ export function NotControlledAccordion(props: AccordionType) {
 
     return (
         <>
-            <AccordionTitle title={props.title} callBack={() => setCollapsed(!collapsed)}/>
+            <AccordionTitle title={props.title} setCollapsed={setCollapsed} collapsed={collapsed} />
             {!collapsed && <AccordionBody/> }
         </>
     )
@@ -25,13 +25,14 @@ export function NotControlledAccordion(props: AccordionType) {
 
 type AccordionTitleType = {
     title: string
-    callBack: () => void
+    setCollapsed: (collapsed: boolean) => void
+    collapsed: boolean
 }
 
 function AccordionTitle(props: AccordionTitleType) {
     return (
         <>
-            <h3 onClick={() => {props.callBack()}}>{props.title}</h3>
+            <h3 onClick={() => {props.setCollapsed(!props.collapsed)}}>{props.title}</h3>
         </>
     )
 }

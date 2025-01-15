@@ -1,6 +1,7 @@
 type AccordionType = {
     title: string;
     collapsed: boolean
+    callBack: () => void
 }
 
 export function Accordion(props: AccordionType) {
@@ -8,7 +9,7 @@ export function Accordion(props: AccordionType) {
 
         return (
             <>
-                <AccordionTitle title={props.title}/>
+                <AccordionTitle title={props.title} callBack={props.callBack}/>
                 {!props.collapsed && <AccordionBody/> }
             </>
         )
@@ -23,12 +24,13 @@ export function Accordion(props: AccordionType) {
 
 type AccordionTitleType = {
     title: string
+    callBack: () => void
 }
 
 function AccordionTitle(props: AccordionTitleType) {
     return (
         <>
-            <h3>{props.title}</h3>
+            <h3 onClick={() => {props.callBack()}}>{props.title}</h3>
         </>
     )
 }
