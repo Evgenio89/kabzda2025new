@@ -1,13 +1,14 @@
 import {useState} from "react";
 
 
+type PropsOnOffType = {
+    onChange: (onOff: boolean) => void;
+}
 
 
-
-
-export const OnOff = () => {
- console.log('OnOff')
- const [onOff, setOnOff] = useState(true)
+export const OnOff = (props: PropsOnOffType) => {
+    console.log('OnOff')
+    const [onOff, setOnOff] = useState(true)
 
 
     /*const changingIndicatorOff = () => {
@@ -36,7 +37,7 @@ export const OnOff = () => {
         padding: '2px',
         backgroundColor: onOff ? 'white' : 'red'
     }
-    const indicatorStyle ={
+    const indicatorStyle = {
         width: '20px',
         height: '20px',
         borderRadius: '10px',
@@ -47,28 +48,37 @@ export const OnOff = () => {
 
     }
 
+    const onClicked = () => {
+        setOnOff(true)
+        props.onChange(true)
+    }
+    const offClicked = () => {
+        setOnOff(false)
+        props.onChange(false)
+    }
 
-    return(
+
+    return (
 
         <div>
-           <div style={onStyle} onClick={() => {setOnOff(true)}}>On</div>
-           <div style={offStyle} onClick={() => {setOnOff(false)}}>Off</div>
-           <div style={indicatorStyle}></div>
+            <div style={onStyle} onClick={onClicked}>On</div>
+            <div style={offStyle} onClick={offClicked}>Off</div>
+            <div style={indicatorStyle}></div>
         </div>
-       /* <div>
-            <button>
-                On
-            </button>
-            <button>
-                Off
-            </button>
-            <svg width={16} height={16}>
-                <circle cx="8"
-                        cy="8"
-                        r="8"
-                />
-            </svg>
-        </div>*/
+        /* <div>
+             <button>
+                 On
+             </button>
+             <button>
+                 Off
+             </button>
+             <svg width={16} height={16}>
+                 <circle cx="8"
+                         cy="8"
+                         r="8"
+                 />
+             </svg>
+         </div>*/
 
 
     )

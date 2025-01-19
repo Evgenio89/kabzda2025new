@@ -4,7 +4,7 @@
 
 type ControlOnOffPropsType = {
     onOff: boolean;
-    callBack: () => void;
+    callBack: (onOff: boolean) => void;
 }
 
 
@@ -54,8 +54,8 @@ export const ControlOnOff = (props: ControlOnOffPropsType) => {
     return(
 
         <div>
-            <div style={onStyle} onClick={() => {props.callBack()}}>On</div>
-            <div style={offStyle} onClick={() => {props.callBack()}}>Off</div>
+            <div style={onStyle} onClick={() => {props.callBack(true)}}>On</div>
+            <div style={offStyle} onClick={() => {props.callBack(false)}}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
         /* <div>

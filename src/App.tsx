@@ -11,21 +11,19 @@ function App() {
 
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0);
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
-    const [onOff, setOnOff] = useState<boolean>(false)
+    const [onOff, setOnOff] = useState<boolean>(true)
 
 
     console.log('App')
     return (
         <div className="App">
 
-            <ControlOnOff onOff={onOff} callBack={() => {
-                setOnOff(!onOff)
-            }}/>
+            <ControlOnOff onOff={onOff} callBack={setOnOff
+            }/>
             <Rating value={ratingValue} callBack={setRatingValue} ratingValue={ratingValue}/>
             <NotControlledRating/>
             <NotControlledAccordion title={'NotControlledAccordion'}/>
-            <OnOff/>
-            <OnOff/>
+            <OnOff onChange={setOnOff}/>{onOff.toString()}
             <PageTitle title={'This is APP component'}/>
             <PageTitle title={'My friends'}/>
 
